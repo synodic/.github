@@ -1,0 +1,8 @@
+{
+    "name": "Synodic C++ Workflow",
+    "description": "Synodic C++ continuous deployment workflow template.",
+    "iconName": "icons/c++",
+    "categories": [
+        "C++"
+    ]
+}
