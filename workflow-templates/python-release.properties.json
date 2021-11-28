@@ -1,7 +1,7 @@
 {
     "name": "Synodic Python Release",
     "description": "Synodic Python release workflow template.",
-    "iconName": "icons/python",
+    "iconName": "python",
     "categories": [
         "Python"
     ]
