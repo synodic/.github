@@ -1,0 +1,8 @@
+{
+    "name": "Synodic Check Python Status",
+    "description": "Synodic Python status checking workflow template.",
+    "iconName": "python",
+    "categories": [
+        "Python"
+    ]
+}

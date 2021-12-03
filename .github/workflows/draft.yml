@@ -1,12 +1,10 @@
-name: Github Release
+name: Draft
 
 on:
   workflow_call:
 
 jobs:
-
   update_draft_release:
-  
     runs-on: ubuntu-latest
     steps:
       - uses: release-drafter/release-drafter@v5

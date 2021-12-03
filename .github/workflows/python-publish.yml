@@ -1,8 +1,14 @@
-name: Publish
+name: Python Publish
 
 on: 
   workflow_call:
-
+    inputs:
+      repository_url:
+        required: true
+        type: string
+    secrets:
+      token:
+        required: true
 jobs:
   
   pypi_release_deployment:
@@ -34,4 +40,5 @@ jobs:
       uses: pypa/gh-action-pypi-publish@v1
       with:
         user: __token__
-        password: ${{ secrets.PYPI_API_TOKEN }}
+        password: ${{ secrets.token }}
+        repository_url: ${{ inputs.repository_url }}

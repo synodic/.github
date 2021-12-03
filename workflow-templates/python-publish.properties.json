@@ -1,0 +1,8 @@
+{
+    "name": "Synodic Publish Python Package",
+    "description": "Synodic Python publishing workflow template.",
+    "iconName": "python",
+    "categories": [
+        "Python"
+    ]
+}
