@@ -31,7 +31,7 @@ jobs:
         run: pdm install
 
       - name: Test
-        run: pytest tests/
+        run: pdm run pytest tests/
 
   lint:
     runs-on: ubuntu-latest
@@ -42,3 +42,5 @@ jobs:
 
       - name: Black
         uses: psf/black@stable
+        with:
+          options: "--check --verbose"
