@@ -1,0 +1,8 @@
+{
+    "name": "Synodic Update Python Development Release",
+    "description": "Synodic Python development release template.",
+    "iconName": "python",
+    "categories": [
+        "Python"
+    ]
+}

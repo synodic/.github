@@ -1,0 +1,52 @@
+name: Python Merge
+
+on:
+  workflow_call:
+    inputs:
+      repository_url:
+        required: true
+        type: string
+    secrets:
+      token:
+        required: true
+jobs:
+  pypi_development_deployment:
+    if: ${{ !github.event.repository.fork }}
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Draft
+        id: draft_release
+        uses: release-drafter/release-drafter@v5
+        env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install PDM
+        uses: pdm-project/setup-pdm@v2
+        with:
+          python-version: "3.10"
+          enable-pep582: true
+
+      - name: Install Dependencies
+        run: pdm install
+
+      - name: Gather Tag Information
+        id: tag_info
+        run: |
+          echo ::set-output name=height:: git rev-list $(git describe --abbrev=0 --tags)..HEAD --count
+
+      - name: Tag Development Version
+        run: git tag ${{steps.run_tests.outputs.tag_name}}.dev${{steps.run_tests.tag_info.height}}
+
+      - name: Build
+        run: pdm build -d dist
+
+      - name: Publish
+        uses: pypa/gh-action-pypi-publish@release/v1
+        with:
+          user: __token__
+          password: ${{ secrets.token }}
+          repository_url: ${{ inputs.repository_url }}
