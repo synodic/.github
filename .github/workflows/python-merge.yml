@@ -30,9 +30,6 @@ jobs:
           python-version: "3.10"
           enable-pep582: true
 
-      - name: Install Dependencies
-        run: pdm install
-
       - name: Gather Tag Information
         id: tag_info
         run: |
