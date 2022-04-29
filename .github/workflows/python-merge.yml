@@ -36,7 +36,7 @@ jobs:
       - name: Gather Tag Information
         id: tag_info
         run: |
-          echo ::set-output name=height:: git rev-list $(git describe --abbrev=0 --tags)..HEAD --count
+          echo ::set-output name=height::$(git rev-list $(git describe --abbrev=0 --tags)..HEAD --count)
 
       - name: Tag Development Version
         run: git tag ${{steps.run_tests.outputs.tag_name}}.dev${{steps.run_tests.tag_info.height}}
