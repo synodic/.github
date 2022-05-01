@@ -21,8 +21,11 @@ jobs:
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+      # Fetch the entire history so we can search for the latest tag
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
 
       - name: Install PDM
         uses: pdm-project/setup-pdm@v2
