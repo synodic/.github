@@ -37,8 +37,17 @@ jobs:
         id: tag-info
         uses: Synodic-Software/Tag-Metadata@v1
 
+      - name: Set Tag
+        id: set-tag
+        run: |
+          echo "::set-output name=version::$(
+            echo "${{steps.draft-release.outputs.tag_name}}.dev${{steps.run_tests.tag-info.height}}"
+          )"
+
       - name: Tag Development Version
-        run: git tag ${{steps.draft-release.outputs.tag_name}}.dev${{steps.run_tests.tag-info.height}}
+        env:
+          TAG: ${{steps.set-tag.outputs.version}}
+        run: git tag $TAG
 
       - name: Build
         run: pdm build -d dist
