@@ -16,7 +16,7 @@ jobs:
 
     steps:
       - name: Draft
-        id: draft_release
+        id: draft-release
         uses: release-drafter/release-drafter@v5
         env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -34,12 +34,11 @@ jobs:
           enable-pep582: true
 
       - name: Gather Tag Information
-        id: tag_info
-        run: |
-          echo ::set-output name=height::$(git rev-list $(git describe --abbrev=0 --tags)..HEAD --count)
+        id: tag-info
+        uses: Synodic-Software/Tag-Metadata@v1
 
       - name: Tag Development Version
-        run: git tag ${{steps.run_tests.outputs.tag_name}}.dev${{steps.run_tests.tag_info.height}}
+        run: git tag ${{steps.draft-release.outputs.tag_name}}.dev${{steps.run_tests.tag-info.height}}
 
       - name: Build
         run: pdm build -d dist
