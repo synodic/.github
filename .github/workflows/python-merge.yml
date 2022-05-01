@@ -41,7 +41,7 @@ jobs:
         id: set-tag
         run: |
           echo "::set-output name=version::$(
-            echo "${{steps.draft-release.outputs.tag_name}}.dev${{steps.run_tests.tag-info.height}}"
+            echo "${{steps.draft-release.outputs.tag_name}}.dev${{steps.tag-info.outputs.height}}"
           )"
 
       - name: Tag Development Version
