@@ -6,9 +6,7 @@ on:
       repository_url:
         required: true
         type: string
-    secrets:
-      token:
-        required: true
+        
 jobs:
   pypi_release_deployment:
     if: ${{ !github.event.repository.fork }}
