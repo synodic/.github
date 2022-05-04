@@ -5,7 +5,7 @@ on:
 
 jobs:
   publish_release:
-    if: github.event_name == 'release' && github.event.action == 'published'
+    if: github.event_name == 'release' && github.event.action == 'published' && !github.event.repository.fork
     uses: synodic-software/.github/.github/workflows/python-publish.yml@stable
     with:
       repository_url: https://upload.pypi.org/legacy/

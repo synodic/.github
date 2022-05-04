@@ -5,6 +5,7 @@ on:
 
 jobs:
   publish_release:
+    if: ${{ !github.event.repository.fork }}
     uses: synodic-software/.github/.github/workflows/python-merge.yml@stable
     with:
       repository_url: https://upload.pypi.org/legacy/

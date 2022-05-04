@@ -8,7 +8,6 @@ on:
         type: string
 jobs:
   pypi_development_deployment:
-    if: ${{ !github.event.repository.fork }}
     runs-on: ubuntu-latest
 
     steps:
