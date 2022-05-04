@@ -6,7 +6,9 @@ on:
       repository_url:
         required: true
         type: string
-        
+    secrets:
+      PYPI_API_TOKEN:
+        required: true       
 jobs:
   pypi_release_deployment:
     runs-on: ubuntu-latest
