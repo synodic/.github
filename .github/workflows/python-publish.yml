@@ -11,7 +11,7 @@ on:
         required: true
 jobs:
   pypi_release_deployment:
-    if: github.event_name == 'release' && github.event.action == 'published' && ${{ !github.event.repository.fork }}
+    if: ${{ !github.event.repository.fork }}
     runs-on: ubuntu-latest
 
     steps:
