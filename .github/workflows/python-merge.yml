@@ -19,7 +19,7 @@ jobs:
         id: draft-release
         uses: release-drafter/release-drafter@v5
         env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       # Fetch the entire history so we can search for the latest tag
       - name: Checkout
