@@ -8,10 +8,10 @@ on:
         type: string
     secrets:
       PYPI_API_TOKEN:
-        required: true       
+        required: true
 jobs:
   pypi_release_deployment:
-    if: ${{ !github.event.repository.fork }}
+    if: github.event_name == 'release' && github.event.action == 'published' && ${{ !github.event.repository.fork }}
     runs-on: ubuntu-latest
 
     steps:
