@@ -1,9 +1,7 @@
 name: Deploy to Github Pages
 
 on:
-  push:
-    branches:
-    - stable
+  workflow_call:
 
 jobs:
   build-deploy:
