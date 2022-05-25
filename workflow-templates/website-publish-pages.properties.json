@@ -1,0 +1,8 @@
+{
+    "name": "Synodic Publish Website to GH Pages",
+    "description": "Build and deploys a static website to the repositories GH page.",
+    "iconName": "typescript",
+    "categories": [
+        "TypeScript"
+    ]
+}

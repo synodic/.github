@@ -1,0 +1,9 @@
+name: Publish Website to GitHub Pages
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish_release:
+    if: github.repository_owner == 'Synodic-Software'
+    uses: synodic-software/.github/.github/workflows/website-publish-pages.yml@stable
