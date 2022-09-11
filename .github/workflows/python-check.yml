@@ -39,3 +39,35 @@ jobs:
         uses: psf/black@stable
         with:
           options: "--check --verbose"
+
+      - name: isort
+        uses: isort/isort-action@master
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10' 
+          cache: 'pip'
+
+      - name: Install 
+        run: pip install pylint
+
+      - name: Pylint 
+        run: pylint $(git ls-files '*.py')
+
+  type-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10' 
+          cache: 'pip'
+
+      - name: Install 
+        run: pip install mypy
+
+      - name: Mypy 
+        run: mypy $(git ls-files '*.py')
+
