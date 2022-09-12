@@ -28,12 +28,6 @@ jobs:
       - name: Test
         run: pdm run test
 
-      - name: Pylint 
-        run: pdm run lint
-
-      - name: Mypy 
-        run: pdm run check
-
   lint:
     runs-on: ubuntu-latest
 
@@ -41,10 +35,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-      - name: Black
-        uses: psf/black@stable
+      - name: Install PDM
+        uses: pdm-project/setup-pdm@v2
         with:
-          options: "--check --verbose"
+          python-version: "3.10"
+          enable-pep582: true
 
-      - name: isort
-        uses: isort/isort-action@master
+      - name: Install Dependencies
+        run: pdm install
+
+      - name: Format
+        run: pdm run format
+
+      - name: Lint 
+        run: pdm run lint
+
+      - name: Type Check 
+        run: pdm run type-check
