@@ -44,11 +44,5 @@ jobs:
       - name: Install Dependencies
         run: pdm install
 
-      - name: Format
-        run: pdm run format
-
       - name: Lint 
         run: pdm run lint
-
-      - name: Type Check 
-        run: pdm run type-check
