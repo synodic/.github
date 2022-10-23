@@ -20,6 +20,7 @@ jobs:
         uses: pdm-project/setup-pdm@v3
         with:
           python-version: ${{ matrix.python-version }}
+          cache: true
           enable-pep582: true
 
       - name: Install Dependencies
@@ -39,6 +40,7 @@ jobs:
         uses: pdm-project/setup-pdm@v3
         with:
           python-version: "3.10"
+          cache: true
           enable-pep582: true
 
       - name: Install Dependencies
