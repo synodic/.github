@@ -21,7 +21,6 @@ jobs:
         with:
           python-version: ${{ matrix.python-version }}
           cache: true
-          enable-pep582: true
 
       - name: Install Dependencies
         run: pdm install
@@ -41,7 +40,6 @@ jobs:
         with:
           python-version: "3.11"
           cache: true
-          enable-pep582: true
 
       - name: Install Dependencies
         run: pdm install

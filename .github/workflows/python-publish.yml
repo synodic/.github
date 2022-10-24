@@ -22,7 +22,6 @@ jobs:
         with:
           python-version: "3.11"
           cache: true
-          enable-pep582: true
 
       - name: Build
         run: pdm build -d dist
