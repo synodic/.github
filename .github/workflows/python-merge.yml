@@ -17,6 +17,8 @@ jobs:
       - name: Draft
         id: draft-release
         uses: release-drafter/release-drafter@v5
+        with:
+          prerelease: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
