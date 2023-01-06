@@ -14,12 +14,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Draft
-        id: draft-release
-        uses: release-drafter/release-drafter@v5
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
       # Fetch the entire history so we can search for the latest tag
       - name: Checkout
         uses: actions/checkout@v3
@@ -36,11 +30,17 @@ jobs:
         id: tag-info
         uses: Synodic-Software/Tag-Metadata@v1
 
+      - name: Draft
+        id: draft-release
+        uses: release-drafter/release-drafter@v5
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Set Tag
         id: set-tag
         run: |
           echo "version=$(
-            echo "${{steps.tag-info.outputs.tag}}.dev${{steps.tag-info.outputs.height}}"
+            echo "${{steps.tag-info.outputs.next-tag}}.dev${{steps.tag-info.outputs.height}}"
           )" >> $GITHUB_OUTPUT
 
       - name: Tag Development Version
