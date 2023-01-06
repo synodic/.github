@@ -1,0 +1,9 @@
+name: Publish Action
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish_release:
+    if: github.repository_owner == 'Synodic-Software'
+    uses: synodic-software/.github/.github/workflows/action-publish.yml@stable

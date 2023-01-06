@@ -1,0 +1,8 @@
+{
+    "name": "Synodic Publish Action",
+    "description": "Synodic Action publishing workflow template.",
+    "iconName": "gear",
+    "categories": [
+        "Action"
+    ]
+}
