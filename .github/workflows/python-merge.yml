@@ -39,9 +39,8 @@ jobs:
       - name: Set Tag
         id: set-tag
         run: |
-          echo "version=$(
-            echo "${{steps.tag-info.outputs.next-tag}}.dev${{steps.tag-info.outputs.height}}"
-          )" >> $GITHUB_OUTPUT
+          version=${{steps.tag-info.outputs.next-tag}}.dev${{steps.tag-info.outputs.height}}
+          echo "version=${version}" >> $GITHUB_OUTPUT
 
       - name: Tag Development Version
         env:
