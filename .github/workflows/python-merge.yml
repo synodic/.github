@@ -20,12 +20,6 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Install PDM
-        uses: pdm-project/setup-pdm@v3
-        with:
-          python-version: "3.11"
-          cache: true
-
       - name: Gather Tag Information
         id: tag-info
         uses: Synodic-Software/Tag-Metadata@v1
@@ -35,6 +29,12 @@ jobs:
         uses: release-drafter/release-drafter@v5
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install PDM
+        uses: pdm-project/setup-pdm@v3
+        with:
+          python-version: "3.11"
+          cache: true
 
       - name: Set Tag
         id: set-tag

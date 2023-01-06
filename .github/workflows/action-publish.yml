@@ -16,7 +16,7 @@ jobs:
       - name: Version
         id: version
         run: |
-          tag=${GITHUB_REF/refs\/tags\//}
+          tag=${{ github.ref_name }}
           version=${tag#v}
           major=${version%%.*}
           echo "tag=${tag}" >> $GITHUB_OUTPUT
