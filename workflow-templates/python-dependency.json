@@ -1,8 +1,0 @@
-{
-    "name": "Synodic Update Python Dependency Update",
-    "description": "Synodic Python dependency update template.",
-    "iconName": "python",
-    "categories": [
-        "Python"
-    ]
-}
