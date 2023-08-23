@@ -1,0 +1,21 @@
+name: Trigger Documentation Deployment
+
+on:
+  workflow_call:
+    inputs:
+      repository:
+        required: true
+        type: string
+    secrets:
+      PAT:
+        required: true
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository Dispatch
+        uses: peter-evans/repository-dispatch@v2
+        with:
+          token: ${{ secrets.PAT }}
+          repository: ${{ inputs.repository }}
+          event-type: docs-deploy
