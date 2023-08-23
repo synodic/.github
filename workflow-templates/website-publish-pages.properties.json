@@ -1,6 +1,6 @@
 {
-    "name": "Synodic Publish Website to GH Pages",
-    "description": "Build and deploys a static website to the repositories GH page.",
+    "name": "Synodic Publish Website to Pages",
+    "description": "Build and deploys a static website to the repository's static Page deployment. Requires the NPM script 'generate' to be defined.",
     "iconName": "typescript",
     "categories": [
         "TypeScript"
