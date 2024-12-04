@@ -5,5 +5,5 @@ on:
 
 jobs:
   publish_release:
-    if: github.repository_owner == 'Synodic-Software'
-    uses: synodic-software/.github/.github/workflows/action-publish.yml@stable
+    if: github.repository_owner == 'synodic'
+    uses: synodic/.github/.github/workflows/action-publish.yml@stable

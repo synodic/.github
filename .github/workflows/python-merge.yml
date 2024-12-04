@@ -22,7 +22,7 @@ jobs:
 
       - name: Gather Tag Information
         id: tag-info
-        uses: Synodic-Software/Tag-Metadata@v1
+        uses: synodic/Tag-Metadata@v1
 
       - name: Draft
         id: draft-release
