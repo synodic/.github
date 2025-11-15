@@ -24,4 +24,4 @@ jobs:
         pages: write
         id-token: write
     if: github.repository_owner == 'synodic'
-    uses: synodic/.github/.github/workflows/website-publish-pages.yml@stable
+    uses: synodic/.github/.github/workflows/js-deploy-docs.yml@stable

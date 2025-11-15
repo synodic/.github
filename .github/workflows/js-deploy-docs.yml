@@ -1,4 +1,4 @@
-name: Build Page Artifact
+name: JS - Build Page Artifact
 
 on:
   workflow_call:
@@ -13,7 +13,7 @@ jobs:
     - name: Setup Node
       uses: actions/setup-node@v6
       with:
-        node-version: '20'
+        node-version: latest
         cache: npm
 
     - name: Install Dependencies
