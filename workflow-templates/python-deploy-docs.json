@@ -1,0 +1,8 @@
+{
+    "name": "Synodic Publish Website to Pages",
+    "description": "Build and deploys a static website to the repository's static Page deployment. Requires the PDM script 'generate' to be defined.",
+    "iconName": "python",
+    "categories": [
+        "Python"
+    ]
+}
