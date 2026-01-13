@@ -34,17 +34,3 @@
 
 *TODO*
 
-## Zenhub Features
-
-### Releases
-
-*TODO*
-
-### Teams
-
-*TODO*
-
-### Workspaces
-
-*TODO*
-
