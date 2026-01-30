@@ -14,15 +14,18 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Fetch the entire history so we can search for the latest tag
       - name: Checkout
         uses: actions/checkout@v6
         with:
-          fetch-depth: 0
+          fetch-depth: 0    # Fetch entire history for tags
+          filter: blob:none # Exclude file contents for speed
 
-      - name: Gather Tag Information
-        id: tag-info
-        uses: synodic/Tag-Metadata@v1
+      - name: Semantic Version
+        id: version
+        uses: PaulHatch/semantic-version@v6.0.1
+        with:
+          tag_prefix: "v"
+          version_format: "${major}.${minor}.${patch}"
 
       - name: Draft
         id: draft-release
@@ -36,15 +39,9 @@ jobs:
           python-version: "3.14"
           cache: true
 
-      - name: Set Tag
-        id: set-tag
-        run: |
-          version=${{steps.tag-info.outputs.next-tag}}.dev${{github.run_number}}
-          echo "version=${version}" >> $GITHUB_OUTPUT
-
       - name: Tag Development Version
         env:
-          TAG: ${{steps.set-tag.outputs.version}}
+          TAG: ${{steps.version.outputs.version}}.dev${{steps.version.outputs.increment}}
         run: git tag $TAG
 
       - name: Build
