@@ -39,15 +39,9 @@ jobs:
           python-version: "3.14"
           cache: true
 
-      - name: Set Tag
-        id: set-tag
-        run: |
-          version=${{steps.version.outputs.version}}.dev${{github.run_number}}
-          echo "version=${version}" >> $GITHUB_OUTPUT
-
       - name: Tag Development Version
         env:
-          TAG: ${{steps.set-tag.outputs.version}}
+          TAG: ${{steps.version.outputs.version}}.dev${{steps.version.outputs.increment}}
         run: git tag $TAG
 
       - name: Build
