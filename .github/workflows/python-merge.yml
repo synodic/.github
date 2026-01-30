@@ -20,9 +20,12 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Gather Tag Information
-        id: tag-info
-        uses: synodic/Tag-Metadata@v1
+      - name: Semantic Version
+        id: version
+        uses: PaulHatch/semantic-version@v6.0.1
+        with:
+          tag_prefix: "v"
+          version_format: "${major}.${minor}.${patch}"
 
       - name: Draft
         id: draft-release
@@ -39,7 +42,7 @@ jobs:
       - name: Set Tag
         id: set-tag
         run: |
-          version=${{steps.tag-info.outputs.next-tag}}.dev${{github.run_number}}
+          version=${{steps.version.outputs.version}}.dev${{github.run_number}}
           echo "version=${version}" >> $GITHUB_OUTPUT
 
       - name: Tag Development Version
