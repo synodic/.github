@@ -14,11 +14,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Fetch the entire history so we can search for the latest tag
       - name: Checkout
         uses: actions/checkout@v6
         with:
-          fetch-depth: 0
+          fetch-depth: 0    # Fetch entire history for tags
+          filter: blob:none # Exclude file contents for speed
 
       - name: Semantic Version
         id: version
