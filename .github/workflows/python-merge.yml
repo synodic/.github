@@ -53,3 +53,4 @@ jobs:
           user: __token__
           password: ${{ secrets.PYPI_API_TOKEN }}
           repository-url: ${{ inputs.repository_url }}
+          skip-existing: true
