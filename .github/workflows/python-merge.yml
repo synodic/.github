@@ -30,6 +30,8 @@ jobs:
       - name: Draft
         id: draft-release
         uses: release-drafter/release-drafter@v7
+        with:
+          config-name: synodic/.github:release-drafter.yml
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
